@@ -112,7 +112,7 @@ public class Yahtzee extends JFrame {
         grandTotalP1 = new JLabel("0");
         gameStatePanel = new JPanel();
         turnLabel = new JLabel("It is " + turn + "'s Turn");
-        rollsLeftLabel = new JLabel("Rolls left: " + Integer.toString(rollsLeft));
+        rollsLeftLabel = new JLabel("Rolls left: " + rollsLeft);
         diceSelectedLabel = new JLabel("Dice selected: ");
         choiceYield = new JLabel("Choice Yield: ");
         yieldLabel = new JLabel("-");
@@ -183,17 +183,9 @@ public class Yahtzee extends JFrame {
 
         diceInterface.setBorder(BorderFactory.createLineBorder(Color.black));
 
-        diceButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                diceButton1ActionPerformed(evt);
-            }
-        });
+        diceButton1.addActionListener(this::diceButton1ActionPerformed);
 
-        diceButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                diceButton2ActionPerformed(evt);
-            }
-        });
+        diceButton2.addActionListener(this::diceButton2ActionPerformed);
 
         diceButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {

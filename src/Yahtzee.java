@@ -1372,7 +1372,10 @@ public class Yahtzee extends javax.swing.JFrame {
 
         for(AbstractButton b : l)
         {
-            b.setEnabled(true);
+            if((turn.equals("Player 1") && b.getParent() == player1Scorecard) ||
+                    (turn.equals("Player 2") && b.getParent() == player2Scorecard))
+                b.setEnabled(true);
+
         }
     }
 

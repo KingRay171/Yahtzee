@@ -1113,13 +1113,12 @@ public class Yahtzee extends javax.swing.JFrame {
             b = false;
 
         }
-        diceSelectedLabel.setText("Dice selected:");
+
     }
 
     public void handleDiceClick(int diceID)
     {
         if(!selectedList.get(diceID - 1))
-
         {
             selectedList.set(diceID - 1, true);
             String temp = diceSelectedLabel.getText();
@@ -1379,7 +1378,7 @@ public class Yahtzee extends javax.swing.JFrame {
 
     private void twosButtonP1ActionPerformed(java.awt.event.ActionEvent evt) {
         endTurnButton.setVisible(true);
-        yieldLabel.setText(Integer.toString(numberOfEach()[2] * 2));
+        yieldLabel.setText(Integer.toString(numberOfEach()[1] * 2));
         ptsInQuestion = numberOfEach()[1] * 2;
     }
 
@@ -1563,6 +1562,11 @@ public class Yahtzee extends javax.swing.JFrame {
     }
 
     private void endTurnButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        diceSelectedLabel.setText("Dice selected:");
+        for (boolean b : selectedList){
+            b = false;
+        }
+
         if(acesButtonP1.isSelected())
             applyPts("Player 1", acesPointsP1, true);
         else if(twosButtonP1.isSelected())
